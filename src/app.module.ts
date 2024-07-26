@@ -1,5 +1,6 @@
 import configuration from '@core/config/configuration';
 import { DatabaseModule } from '@core/database';
+import { LoggerModule } from '@core/utils';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from 'modules/auth';
@@ -14,6 +15,7 @@ const appModules = [AuthModule, UserModule, TaskModule];
       isGlobal: true,
       load: [configuration],
     }),
+    LoggerModule,
     DatabaseModule,
     ...appModules,
   ],
